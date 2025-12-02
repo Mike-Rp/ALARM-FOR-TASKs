@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <span>Alarm</span>
+            </div>
+            <nav>
+                <button id="nav-add" class="nav-btn active">
+                    <i class="fas fa-plus"></i>
+                    Add Alarm
+                </button>
+                <button id="nav-events" class="nav-btn">
+                    <i class="fas fa-list"></i>
+                    Events
+                </button>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="time-display" id="timeDisplay">--:--</div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="add-alarm" class="section active">
+            <h2>Create New Alarm</h2>
+            <div style="margin-top: 20px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="alarmMinute">
+                            <i class="fas fa-hourglass-end"></i>
+                            Minute of Hour (00-59)
+                        </label>
+                        <input type="number" id="alarmMinute" min="0" max="59" placeholder="07" value="07">
+                    </div>
+                    <div class="form-group">
+                        <label for="alarmName">
+                            <i class="fas fa-tag"></i>
+                            Event Name
+                        </label>
+                        <input type="text" id="alarmName" placeholder="e.g., Break Time, Meeting Reminder">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="alarmEffect">
+                        <i class="fas fa-palette"></i>
+                        Visual Effect
+                    </label>
+                    <select id="alarmEffect">
+                        <option value="multicolor">Flashy Multicolor</option>
+                        <option value="blackwhite">Black & White Flashing</option>
+                        <option value="redwarning">Red Warning Flashing</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="addAlarmBtn">
+                    <i class="fas fa-check"></i>
+                    Add Alarm
+                </button>
+            </div>
+        </section>
+
+        <section id="events" class="section">
+            <h2>Your Alarms</h2>
+            <div id="eventsList" class="events-list">
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No alarms created yet. Go to Add Alarm to create one!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="alarmOverlay" class="alarm-overlay">
+        <div class="alarm-content">
+            <i class="fas fa-bell alarm-icon"></i>
+            <h1 id="alarmMessage">ALARM!</h1>
+            <button class="alarm-button" id="alarmAcknowledge">
+                <i class="fas fa-check"></i>
+                Acknowledge
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
